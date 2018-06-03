@@ -57,7 +57,6 @@ class App extends Component {
       pc.addStream(stream)
     }).catch(console.log)
     
-    console.log(this)
     this.drone.on('data', (message, client) => {
       if (this.drone.clientId === client.id) return
       if (message.sdp) {
@@ -73,8 +72,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <video id="localVideo" ref={this.localVideoRef} autoPlay muted></video>
-        <video id="remoteVideo" ref={this.remoteVideoRef} autoPlay></video>
+        <video id="localvideo" ref={this.localVideoRef} autoPlay muted></video>
+        <video id="remotevideo" ref={this.remoteVideoRef} autoPlay></video>
       </div>
     );
   }
