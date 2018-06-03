@@ -47,13 +47,13 @@ class App extends Component {
     if (members.length === 2) pc.onnegotiationneeded = () => pc.createOffer().then(this.localDescCreated)
 
     pc.onaddstream = e => {
-      this.remoteVideoRef.srcObject = e.stream
+      this.remoteVideoRef.current.srcObject = e.stream
     }
     window.navigator.mediaDevices.getUserMedia({
       audio: true,
       video: true,
     }).then(stream => {
-      this.localVideoRef.srcObject = stream
+      this.localVideoRef.current.srcObject = stream
       pc.addStream(stream)
     }).catch(console.log)
     
